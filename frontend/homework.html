@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+        /* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+    html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        font-size: 100%;
+        font: inherit;
+        vertical-align: baseline;
+    }
+    /* HTML5 display-role reset for older browsers */
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+        display: block;
+    }
+    body {
+        line-height: 1;
+    }
+    ol, ul {
+        list-style: none;
+    }
+    blockquote, q {
+        quotes: none;
+    }
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+        content: '';
+        content: none;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+        body {
+            width: 100%;
+            height: 100vh;
+            font-family: 'Jua', sans-serif;
+        }
+        .title {
+            width: 100%;
+            height: 350px;
+
+            background:url("https://w.namu.la/s/4c957456c0d60cd73e2a311cf33d7e238b63456362efdff8e20e87fe3287860df4f31bd5976b5fa2a0e3a0ebabe7560616f274bd1ebb345cf18a8a9892ab64fbd6747531719b183ad581c75aa04e83afab4be7672476551f60f9a3892c9d6ec942cd248ae4f93de2253fa0588e3766a0");
+            background-size: cover;
+            background-position-x: -30vw;
+            background-position-y: top;
+            opacity: 0.8;
+
+
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            letter-spacing: 10px;
+        }
+        main {
+            width: 100%;
+            height: 100vh;
+            margin-top: 20px;
+            box-sizing: border-box;
+        }
+        .title{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .title > p {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .comment__box {
+            margin: auto;
+            width: 40%;
+            height: 45vh;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 20px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .comment__box > input {
+            margin: 20px 0px;
+            width: 70%;
+            height: 60px;
+            padding: 0px 10px;
+        }
+        .comment__box > textarea {
+            padding: 10px 20px;
+        }
+        .comment__box__btn{
+            margin: 30px 0px;
+            padding: 10px 20px;
+            border-radius: 20px;
+            background-color: black;
+            color: white;
+            transition: all .3s ease-in-out;
+            cursor: pointer;
+        }
+        .comment__box__btn:hover{
+            background-color: white;
+            color: black;
+        }
+        .comment{
+            margin: auto;
+            margin-top: 20px;
+            width: 40%;
+            height: 45vh;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .comment > div {
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 20px;
+            width: 80%;
+            height: 70px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 10px;
+            background-color: whitesmoke;
+        }
+         .comment > div > p:first-child{
+            font-size: 30px;
+        }
+        .comment > div > p:last-child{
+            font-size: 15px;
+            font-weight: 200;
+            opacity: 0.7;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(document).ready(function () {
+                $.ajax({
+                    type: "GET",
+                    url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+                    data: {},
+                    success: function (response) {
+                        const temp = response.temp;
+                        const city = response.city;
+                        const temp_html = `<p><span>${city} ${temp}</span>도</p>`;
+                        $('.title').append(temp_html);
+                    }
+                })
+            })
+        });
+    </script>
+</head>
+<body>
+    <header class="title">
+        <h1>이적 팬명록</h1>
+    </header>
+    <main>
+        <form action="#" class="comment__box">
+            <input type="text" placeholder="name">
+            <textarea name="" placeholder="comment" id="" cols="36" rows="10"></textarea>
+            <button class="comment__box__btn" type="submit">Upload</button>
+        </form>
+        <section class="comment">
+            <div>
+                <p class="comment__context">새로운 앨범 너무 멋져요</p>
+                <p class="comment__name">세균맨</p>
+            </div>
+            <div>
+                <p class="comment__context">새로운 앨범 너무 멋져요</p>
+                <p class="comment__name">세균맨</p>
+            </div>
+            <div>
+                <p class="comment__context">새로운 앨범 너무 멋져요</p>
+                <p class="comment__name">세균맨</p>
+            </div>
+            <div>
+                <p class="comment__context">새로운 앨범 너무 멋져요</p>
+                <p class="comment__name">세균맨</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
