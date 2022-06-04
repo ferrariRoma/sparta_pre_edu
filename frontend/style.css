@@ -1,0 +1,56 @@
+* {
+    font-family: 'Jua', sans-serif;
+}
+
+.wrap {
+    height: 250px;
+    background-image: linear-gradient(0deg, rgba(0,0,0,0.1),rgba(0,0,0,0.3),rgba(0,0,0,1) 90%), url("https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+}
+.wrap > button {
+    width: 200px;
+    height: 50px;
+    border-radius: 50px;
+    border: 1px solid white;
+    background: transparent;
+    color: whitesmoke;
+    margin-top: 10px;
+}
+button:hover {
+    border: 2px solid white;
+}
+
+.poster{
+    width: 95vw;
+    margin: 20px auto;
+}
+.upload{
+    margin: 20px auto;
+    width: 50vw;
+    padding: 20px;
+    box-shadow: 0px 0px 3px 0px gray;
+    border-radius: 20px;
+}
+
+.buttonBox {
+    width:30%;
+    margin: auto;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.buttonBox > button:first-child {
+    margin-right: 10px;
+    background-color: black;
+    color: white;
+}
+.buttonBox > button {
+    border-radius: 10px;
+}
+#post-box{
+    display:none;
+}
