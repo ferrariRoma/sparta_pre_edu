@@ -28,110 +28,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <style>
-      * {
-        font-family: "Noto Serif KR", serif;
-      }
-      .mypic {
-        width: 100%;
-        height: 300px;
-
-        background-image: linear-gradient(
-            0deg,
-            rgba(0, 0, 0, 0.5),
-            rgba(0, 0, 0, 0.5)
-          ),
-          url("https://w.namu.la/s/4c957456c0d60cd73e2a311cf33d7e238b63456362efdff8e20e87fe3287860df4f31bd5976b5fa2a0e3a0ebabe7560616f274bd1ebb345cf18a8a9892ab64fbd6747531719b183ad581c75aa04e83afab4be7672476551f60f9a3892c9d6ec942cd248ae4f93de2253fa0588e3766a0");
-        background-position: center 30%;
-        background-size: cover;
-
-        color: white;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-      }
-
-      .mypost {
-        width: 95%;
-        max-width: 500px;
-        margin: 20px auto 20px auto;
-
-        box-shadow: 0px 0px 3px 0px black;
-        padding: 20px;
-      }
-
-      .mypost > button {
-        margin-top: 15px;
-      }
-
-      .mycards {
-        width: 95%;
-        max-width: 500px;
-        margin: auto;
-      }
-
-      .mycards > .card {
-        margin-top: 10px;
-        margin-bottom: 10px;
-      }
-    </style>
-    <script>
-      $(document).ready(function () {
-        set_temp();
-        show_comment();
-      });
-      function set_temp() {
-        $.ajax({
-          type: "GET",
-          url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
-          data: {},
-          success: function (response) {
-            $("#temp").text(response["temp"]);
-          },
-        });
-      }
-      function save_comment() {
-        $.ajax({
-          type: "POST",
-          url: "/homework",
-          data: {
-            name_give: $('#name').val(),
-            comment_give: $('#comment').val()
-          },
-          success: function (response) {
-            window.location.reload();
-          },
-        });
-      }
-      function show_comment() {
-        $.ajax({
-          type: "GET",
-          url: "/homework",
-          data: {},
-          success: function (response) {
-            const fans = response['fans']
-            let name, comment;
-            for(let i=0; i<fans.length; i++){
-              name = fans[i]['name']
-              comment = fans[i]['comment']
-              const temp_html = `
-                     <div class="card">
-                       <div class="card-body">
-                         <blockquote class="blockquote mb-0">
-                           <p>${comment}</p>
-                           <footer class="blockquote-footer">${name}</footer>
-                         </blockquote>
-                       </div>
-                     </div>
-              `
-              $('#comment-list').append(temp_html)
-            }
-          },
-        });
-      }
-    </script>
+    <link rel="stylesheet" href="../static/css/style.css">
   </head>
   <body>
     <div class="mypic">
@@ -159,4 +56,5 @@
     <div class="mycards" id="comment-list">
     </div>
   </body>
+  <script src="../static/js/main.js"></script>
 </html>
